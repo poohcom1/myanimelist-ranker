@@ -2,7 +2,7 @@ import React from 'react'
 import { ReactSortable } from "react-sortablejs";
 import { getCompletedAnimeList } from '../libs/mal';
 import ListItem from '../components/ListItem';
-import { saveOrder, getOrder, orderList } from '../libs/save';
+import { saveOrder, getOrder, orderList, saveUser } from '../libs/save';
 
 export default class Ranking extends React.Component {
     /**
@@ -39,7 +39,7 @@ export default class Ranking extends React.Component {
                     list = orderList(list, this.storedOrder)
                 }
 
-
+                saveUser(this.props.user)
                 this.setState({ list: list })
             })
             .catch(() => {

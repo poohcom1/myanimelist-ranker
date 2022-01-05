@@ -1,4 +1,5 @@
 import React from "react"
+import { getUser } from "../libs/save"
 import "./Header.css"
 
 export default class Header extends React.Component {
@@ -16,7 +17,7 @@ export default class Header extends React.Component {
         return (
             <div className="header">
                 <label htmlFor="username">Username: </label>
-                <input id="username" onChange={e => this.props.setUser(e.target.value)}></input>
+                <input id="username" onChange={e => this.props.setUser(e.target.value)} value={getUser()}></input>
             </div>
         )
     }

@@ -49,3 +49,11 @@ export function orderList(animeList, order) {
 
     return orderedList
 }
+
+export function saveUser(user) {
+    localStorage.setItem("user", user)
+}
+
+export function getUser() {
+    return localStorage.getItem("user")
+}
