@@ -10,19 +10,21 @@ export const MODE = {
 /**
  * 
  * @param {[]} order 
+ * @param {string} username
  * @param {MODE} mode 
  */
-export function saveOrder(order, mode=MODE.ANIME) {
-    localStorage.setItem(mode, JSON.stringify(order))
+export function saveOrder(order, username, mode=MODE.ANIME) {
+    localStorage.setItem(`${username}_${mode}`, JSON.stringify(order))
 }
 
 /**
  * 
  * @param {MODE} mode 
+ * @param {string} username
  * @returns 
  */
-export function getOrder(mode = MODE.ANIME) {
-    return JSON.parse(localStorage.getItem(mode))
+export function getOrder(username, mode = MODE.ANIME) {
+    return JSON.parse(localStorage.getItem(`${username}_${mode}`))
 }
 
 /**

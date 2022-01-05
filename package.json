@@ -5,7 +5,7 @@
     "url": "https://github.com/poohcom1/myanimelist-ranker.git"
   },
   "private": true,
-  "homepage": "http://poohcom1.github.io/myanimelist-ranker",
+  "homepage": "https://poohcom1.github.io/myanimelist-ranker",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

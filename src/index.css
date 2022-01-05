@@ -14,5 +14,6 @@ code {
 
 :root {
   --primary: rgb(33, 33, 110);
-  --bg-primary: rgb(30, 30, 255);
+  --bg-primary: white;
+  --bg-secondary: rgb(83, 83, 255);
 }

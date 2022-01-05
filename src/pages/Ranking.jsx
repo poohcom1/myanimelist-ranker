@@ -5,6 +5,10 @@ import ListItem from '../components/ListItem';
 import { saveOrder, getOrder, orderList } from '../libs/save';
 
 export default class Ranking extends React.Component {
+    /**
+     * 
+     * @param {string} props.user 
+     */
     constructor(props) {
         super(props)
 
@@ -14,30 +18,44 @@ export default class Ranking extends React.Component {
             minScore: 5
         }
 
-        this.storedOrder = getOrder()
+        this.storedOrder = getOrder(this.props.user)
     }
 
     componentDidMount() {
-        getCompletedAnimeList("poohcom1").then(list => {
-            if (this.storedOrder) {
-                list = orderList(list, this.storedOrder)
+        this.updateList()
 
-                console.log("Loaded from storage")
-            }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.user !== prevProps.user) {
+            this.updateList();
+        }
+    }
+
+    updateList() {
+        getCompletedAnimeList(this.props.user)
+            .then(list => {
+                if (this.storedOrder) {
+                    list = orderList(list, this.storedOrder)
+                }
 
 
-            this.setState({  list: list })
-        })
+                this.setState({ list: list })
+            })
+            .catch(() => {
+                this.setState({ list: [] })
 
+                console.log("user not found!")
+            })
     }
 
     setList(newList) {
         if (newList.length === 0) return
 
-        this.setState({ list: newList})
+        this.setState({ list: newList })
         const order = newList.map(anime => anime.mal_id)
 
-        saveOrder(order)
+        saveOrder(order, this.props.user)
     }
 
     render() {
@@ -52,12 +70,12 @@ export default class Ranking extends React.Component {
                     delay={1}
                 >
                     {this.state.list.map((item, index) => (
-                        <ListItem 
-                            key={item.mal_id} 
-                            rank={index + 1} 
+                        <ListItem
+                            key={item.mal_id}
+                            rank={index + 1}
                             anime={item}
                             score={this.state.maxScore - index / this.state.list.length * (this.state.maxScore - this.state.minScore)}
-                            ></ListItem>
+                        ></ListItem>
                     ))}
 
                 </ReactSortable>

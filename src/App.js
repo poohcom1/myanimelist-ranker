@@ -1,12 +1,34 @@
 import Ranking from './pages/Ranking'
-//import Sortable from 'sortablejs';
+import React from 'react'
+import Header from './components/Header';
 
-function App() {
-  return (
-    <div>
-      <Ranking></Ranking>
-    </div>
-  );
+const SEARCH_DELAY = 500
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      user: ""
+    }
+
+    this.setUser = this.setUser.bind(this)
+    this.searchTimeout = null
+  }
+
+  setUser(user) {
+    clearTimeout(this.searchTimeout)
+
+    this.searchTimeout = setTimeout(() => this.setState({ user: user }), SEARCH_DELAY)
+  }
+
+  render() {
+    return (
+      <div>
+        <Header setUser={this.setUser} />
+        {this.state.user ? <Ranking user={this.state.user} /> : <></>}
+      </div>
+    );
+  }
 }
 
-export default App;
