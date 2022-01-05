@@ -3,7 +3,7 @@ import './Ranking.css'
 import { ReactSortable } from "react-sortablejs";
 import { getCompletedAnimeList } from '../libs/mal';
 import ListItem from '../components/ListItem';
-import { saveOrder, getOrder, orderList, saveUser, clearOrder } from '../libs/save';
+import { saveOrder, getOrder, orderList, saveUser } from '../libs/save';
 
 export default class Ranking extends React.Component {
     /**
