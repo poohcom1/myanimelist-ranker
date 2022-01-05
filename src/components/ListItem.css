@@ -2,16 +2,20 @@
   display: flex;
   align-items: center;
 
-  border: 2px var(--bg-primary) solid;
-  border-left: 5px var(--bg-primary) solid;
+  border: 2px var(--bg-secondary) solid;
+  border-left: 5px var(--bg-secondary) solid;
   margin: 12px;
   padding: 7px;
 
   overflow: hidden;
 }
 
-.item:hover {
+.item:hover, .item.sortable-chosen {
   cursor: pointer;
+
+  border: 2px var(--bg-selected) solid;
+  border-left: 5px var(--bg-selected) solid;
+  background-color: rgb(224, 240, 253);
 }
 
 .item div,

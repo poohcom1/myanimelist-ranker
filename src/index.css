@@ -16,4 +16,6 @@ code {
   --primary: rgb(33, 33, 110);
   --bg-primary: white;
   --bg-secondary: rgb(83, 83, 255);
+  
+  --bg-selected: rgb(102, 112, 206);
 }

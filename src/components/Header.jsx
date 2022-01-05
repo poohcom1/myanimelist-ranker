@@ -17,7 +17,7 @@ export default class Header extends React.Component {
         return (
             <div className="header">
                 <label htmlFor="username">Username: </label>
-                <input id="username" onChange={e => this.props.setUser(e.target.value)} value={getUser()}></input>
+                <input id="username" onChange={e => this.props.setUser(e.target.value)} placeholder={getUser()}></input>
             </div>
         )
     }

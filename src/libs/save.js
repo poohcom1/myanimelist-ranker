@@ -27,6 +27,10 @@ export function getOrder(username, mode = MODE.ANIME) {
     return JSON.parse(localStorage.getItem(`${username}_${mode}`))
 }
 
+export function clearOrder(username, mode) {
+    localStorage.clear(`${username}_${mode}`)
+}
+
 /**
  * 
  * @param {array} animeList 
