@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/myanimelist-ranker/static/css/main.e241ef48.css",
-    "main.js": "/myanimelist-ranker/static/js/main.07cf7afd.js",
+    "main.css": "/myanimelist-ranker/static/css/main.d19d16b4.css",
+    "main.js": "/myanimelist-ranker/static/js/main.64acff5b.js",
     "static/js/787.ab7d9a28.chunk.js": "/myanimelist-ranker/static/js/787.ab7d9a28.chunk.js",
     "index.html": "/myanimelist-ranker/index.html",
-    "main.e241ef48.css.map": "/myanimelist-ranker/static/css/main.e241ef48.css.map",
-    "main.07cf7afd.js.map": "/myanimelist-ranker/static/js/main.07cf7afd.js.map",
+    "main.d19d16b4.css.map": "/myanimelist-ranker/static/css/main.d19d16b4.css.map",
+    "main.64acff5b.js.map": "/myanimelist-ranker/static/js/main.64acff5b.js.map",
     "787.ab7d9a28.chunk.js.map": "/myanimelist-ranker/static/js/787.ab7d9a28.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e241ef48.css",
-    "static/js/main.07cf7afd.js"
+    "static/css/main.d19d16b4.css",
+    "static/js/main.64acff5b.js"
   ]
 }
