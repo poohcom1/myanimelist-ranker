@@ -1,0 +1,9 @@
+
+.footer {
+    margin-top: 20px;
+    width: 100%;
+
+    display: flex;
+
+    background-color: var(--bg-secondary);
+}

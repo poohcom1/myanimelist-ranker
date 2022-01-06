@@ -28,6 +28,20 @@
   width: 250px;
 }
 
+.sizeSlider {
+  justify-self: end;
+  margin-right: auto;
+  width: 250px;
+}
+
+.sizeSliderLabel {
+  
+  justify-self: end;
+  margin-right: auto;
+  width: fit-content
+}
+
+
 .rc-slider-mark-text {
   color: rgba(255, 255, 255, 0.226);
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./ListItem.css"
+import PropTypes from 'prop-types'
 
 /**
  * added_to_list: false
@@ -35,21 +36,15 @@ import "./ListItem.css"
     watching_status: 2
  */
 
-export default class ListItem extends React.Component {
-    /**
-     * @param {Object} props.anime 
-     * @param {number} props.rank
-     */
-
-
+class ListItem extends React.Component {
     render() {
-        const { anime, rank, score } = this.props
+        const { anime, rank, score, size } = this.props
 
         return <div className="item">
             <div className="rank">
                 {rank}
             </div>
-            <img src={anime.image_url} alt={anime.title} height="25px" />
+            <img src={anime.image_url} alt={anime.title} height={`${size}px`} />
             <div className="title" >
                 <a href={anime.url}>
                     {anime.title}
@@ -61,3 +56,16 @@ export default class ListItem extends React.Component {
         </div>
     }
 }
+
+ListItem.propTypes = {
+    anime: PropTypes.object,
+    rank: PropTypes.number,
+    size: PropTypes.number,
+    score: PropTypes.number
+}
+
+ListItem.defaultProps = {
+    size: 25
+}
+
+export default ListItem

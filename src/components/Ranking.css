@@ -1,0 +1,42 @@
+.list {
+  width: 70%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: grey;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid grey;
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.25em;
+}
+
+.messageScreen {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 50px;
+}
+
+.messageScreen p {
+  color: grey;
+  font-weight: 900;
+  font-size: larger;
+}

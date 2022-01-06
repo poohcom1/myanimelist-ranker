@@ -61,3 +61,11 @@ export function saveUser(user) {
 export function getUser() {
     return localStorage.getItem("user")
 }
+
+export function saveRange(range) {
+    localStorage.setItem("range", JSON.stringify(range))
+}
+
+export function getRange() {
+    return JSON.parse(localStorage.getItem("range")) ?? [0, 10]
+}

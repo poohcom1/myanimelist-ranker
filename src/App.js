@@ -1,7 +1,8 @@
-import Ranking from './pages/Ranking'
+import Ranking from './components/Ranking'
 import React from 'react'
 import Header from './components/Header';
-import { getUser } from './libs/save';
+import Footer from './components/Footer'
+import { getRange, getUser, saveRange } from './libs/save';
 
 const SEARCH_DELAY = 500
 
@@ -11,14 +12,13 @@ export default class App extends React.Component {
 
     this.state = {
       user: getUser() ?? "",
-      maxScore: 10,
-      minScore: 1
+      size: 50,
+      minScore: getRange()[0] ?? 0,
+      maxScore: getRange()[1] ?? 10,
     }
 
     this.searchTimeout = null
     this.setUser = this.setUser.bind(this)
-    this.setMaxScore = this.setMaxScore.bind(this)
-    this.setMinScore = this.setMinScore.bind(this)
     this.setScore = this.setScore.bind(this)
   }
 
@@ -28,25 +28,28 @@ export default class App extends React.Component {
     this.searchTimeout = setTimeout(() => this.setState({ user }), SEARCH_DELAY)
   }
 
-  setMaxScore(maxScore = this.state.maxScore) {
-    this.setState({ maxScore })
-  }
-
-  setMinScore(minScore = this.state.minScore) {
-    this.setState({ minScore })
-  }
-
   setScore(score) {
+    saveRange(score)
     this.setState({ minScore: score[0], maxScore: score[1] })
   }
 
   render() {
     return (
       <div>
-        <Header setUser={this.setUser} setScore={this.setScore} setMinScore={this.setMinScore} setMaxScore={this.setMaxScore} />
+        <Header 
+          setUser={this.setUser} 
+          setScore={this.setScore}  />
+
+
         {this.state.user ? <Ranking user={this.state.user}
           maxScore={this.state.maxScore}
-          minScore={this.state.minScore} /> : <></>}
+          minScore={this.state.minScore} /> 
+          : 
+          <>
+          
+          </>}
+
+        <Footer/>
       </div>
     );
   }
