@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/myanimelist-ranker/static/css/main.d19d16b4.css",
-    "main.js": "/myanimelist-ranker/static/js/main.64acff5b.js",
+    "main.css": "/myanimelist-ranker/static/css/main.2e43b583.css",
+    "main.js": "/myanimelist-ranker/static/js/main.c19c1d81.js",
     "static/js/787.ab7d9a28.chunk.js": "/myanimelist-ranker/static/js/787.ab7d9a28.chunk.js",
+    "static/media/anime-loading-gif-8.gif": "/myanimelist-ranker/static/media/anime-loading-gif-8.418cc624a79668ebc50d.gif",
     "index.html": "/myanimelist-ranker/index.html",
-    "main.d19d16b4.css.map": "/myanimelist-ranker/static/css/main.d19d16b4.css.map",
-    "main.64acff5b.js.map": "/myanimelist-ranker/static/js/main.64acff5b.js.map",
+    "main.2e43b583.css.map": "/myanimelist-ranker/static/css/main.2e43b583.css.map",
+    "main.c19c1d81.js.map": "/myanimelist-ranker/static/js/main.c19c1d81.js.map",
     "787.ab7d9a28.chunk.js.map": "/myanimelist-ranker/static/js/787.ab7d9a28.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d19d16b4.css",
-    "static/js/main.64acff5b.js"
+    "static/css/main.2e43b583.css",
+    "static/js/main.c19c1d81.js"
   ]
 }
