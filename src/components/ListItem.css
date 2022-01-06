@@ -4,18 +4,17 @@
 
   border: 2px var(--bg-secondary) solid;
   border-left: 5px var(--bg-secondary) solid;
-  margin: 6px;
+  margin: 1px;
   padding: 7px;
 
-  overflow: hidden;
+  background: var(--bg-primary); 
 }
 
-.item:hover, .item.sortable-chosen {
+.item:hover,
+.item.sortable-chosen {
   cursor: pointer;
 
-  border: 2px var(--bg-selected) solid;
-  border-left: 5px var(--bg-selected) solid;
-  background-color: rgb(224, 240, 253);
+  background: var(--bg-secondary)
 }
 
 .item div,
@@ -26,22 +25,29 @@ img {
 .item .rank {
   color: var(--primary);
   font-weight: 600;
-
 }
 
-
-
 .item .title a {
-    font-weight: 600;
-    color: var(--primary);
-    text-decoration: none;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
 }
 
 .item .title a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .item .score {
-    justify-self: end;
-    margin-left: auto;
+  justify-self: end;
+  margin-left: auto;
+}
+
+.item:hover div,
+.item:hover a {
+  color: white;
+}
+
+.item.sortable-chosen div,
+.item.sortable-chosen a {
+  color: white;
 }

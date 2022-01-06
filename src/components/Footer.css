@@ -1,9 +1,34 @@
-
 .footer {
-    margin-top: 20px;
-    width: 100%;
+  margin: 0;
+  margin-top: 20px;
+  padding: 25px;
 
-    display: flex;
 
-    background-color: var(--bg-secondary);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  background-color: var(--bg-secondary);
+  color: white;
+
+  align-items: center;
+
+  margin-top: auto;
+}
+
+.footer * {
+  margin-left: 15px;
+}
+
+.footer a {
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  width: fit-content;
+}
+
+.footer img {
+  object-fit: cover;
+  width: 75%;
+  margin: 0;
 }

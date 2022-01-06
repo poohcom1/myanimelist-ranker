@@ -1,3 +1,4 @@
+import './App.css'
 import Ranking from './components/Ranking'
 import React from 'react'
 import Header from './components/Header';
@@ -35,22 +36,24 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <Header 
           setUser={this.setUser} 
           setScore={this.setScore}  />
 
 
-        {this.state.user ? <Ranking user={this.state.user}
-          maxScore={this.state.maxScore}
-          minScore={this.state.minScore} /> 
-          : 
-          <>
-          
-          </>}
+        <div className='main'>
+          {this.state.user ? <Ranking user={this.state.user}
+            maxScore={this.state.maxScore}
+            minScore={this.state.minScore} />
+            :
+            <>
+
+            </>}
+        </div>
 
         <Footer/>
-      </div>
+      </>
     );
   }
 }

@@ -46,10 +46,11 @@ class ListItem extends React.Component {
             </div>
             <img src={anime.image_url} alt={anime.title} height={`${size}px`} />
             <div className="title" >
-                <a href={anime.url}>
+                <a href={anime.url} target="_blank" rel="noreferrer">
                     {anime.title}
                 </a>
             </div>
+            
             <div className="score">
                 {`Score: ${score.toFixed(2)} (${anime.score})`}
             </div>

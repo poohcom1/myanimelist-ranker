@@ -21,7 +21,7 @@ export default class Ranking extends React.Component {
             userNotFound: false,
         }
 
-        this.storedOrder = getOrder(this.props.user)
+        this.storedOrder = null
     }
 
     componentDidMount() {
@@ -38,6 +38,7 @@ export default class Ranking extends React.Component {
     updateList() {
         console.log("Searching for user: " + this.props.user)
 
+        this.storedOrder = getOrder(this.props.user)
         this.setState({ searching: true, list: [] })
 
         getCompletedAnimeList(this.props.user)
@@ -82,7 +83,9 @@ export default class Ranking extends React.Component {
     addBreaks(list) {
         list = [...list].filter(this.isItem)
 
-        for (let i = 1; i < list.length / 10 - 1; i++) {
+        const length = list.length / 10
+
+        for (let i = 1; i < length; i++) {
             list.splice(i * 10 + i - 1, 0, i * 10)
         }
 
@@ -108,7 +111,7 @@ export default class Ranking extends React.Component {
                         list={this.state.list}
                         setList={this.setList.bind(this)}
 
-                        animation={100}
+                        animation={50}
                         delayOnTouchStart={true}
                         delay={1}
                         filter={".separator"}
