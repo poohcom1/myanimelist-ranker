@@ -1,24 +1,38 @@
-
 .header {
-    margin-top: 0;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 15px;
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 15px;
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    background-color: var(--bg-secondary);
-    height: 55px;
+  background-color: var(--bg-secondary);
+  height: 55px;
 }
 
 .header label {
-    color: white;
-    font-weight: 600;
+  color: white;
+  font-weight: 600;
 
-    margin-right: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .header input {
-    height: fit-content;
+  height: fit-content;
+}
+
+.range {
+  margin-left: 15px;
+  width: 250px;
+}
+
+.rc-slider-mark-text {
+  color: rgba(255, 255, 255, 0.226);
+}
+
+.rc-slider-mark-text-active {
+  color: white;
+  font-weight: 600;
 }

@@ -15,8 +15,6 @@ export default class Ranking extends React.Component {
 
         this.state = {
             list: [],
-            maxScore: 10,
-            minScore: 5
         }
 
         //clearOrder(this.props.user)
@@ -63,7 +61,7 @@ export default class Ranking extends React.Component {
     }
 
     isItem(item) {
-        return typeof(item) !== "number"
+        return typeof (item) !== "number"
     }
 
     addBreaks(list) {
@@ -82,6 +80,12 @@ export default class Ranking extends React.Component {
         return list.filter(this.isItem)
     }
 
+    lerp(value1, value2, amount) {
+        amount = amount < 0 ? 0 : amount
+        amount = amount > 1 ? 1 : amount
+        return value1 + (value2 - value1) * amount
+    }
+
     render() {
         let index = 0
 
@@ -98,19 +102,16 @@ export default class Ranking extends React.Component {
                     delay={1}
                     filter={".separator"}
 
-                    onMove={function (evt) {
-                        if (evt.related) {
-                            return !evt.related.classList.contains('separator');
-                        }
-                    }
-                    }
+                    onMove={(evt) => {
+                        if (evt.related) return !evt.related.classList.contains('separator');
+                    }}
                 >
                     {this.state.list.map(item => (
                         <>{this.isItem(item) ? <ListItem
                             key={item.mal_id}
-                            rank={index++ + 1}
+                            rank={index + 1}
                             anime={item}
-                            score={this.state.maxScore - index / this.state.list.length * (this.state.maxScore - this.state.minScore)}
+                            score={this.props.maxScore - index++ * ((this.props.maxScore - this.props.minScore) / this.state.list.length)}
                         /> :
                             <div class="separator">
                                 {`Top ${item}`}
