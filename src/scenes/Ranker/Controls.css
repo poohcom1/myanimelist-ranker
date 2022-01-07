@@ -1,15 +1,17 @@
-.Header {
+.controls {
   margin: 0;
-  margin-bottom: 5px;
-  padding: 5px 55px;
+  margin-bottom: 15px;
+  padding: 15px;
 
   display: flex;
   align-items: center;
 
+  background-color: var(--bg-secondary);
   height: 55px;
+  flex-shrink: 0;
 }
 
-.Header label {
+.controls label {
   color: white;
   font-weight: 600;
 
@@ -17,7 +19,7 @@
   margin-left: 5px;
 }
 
-.Header input {
+.controls input {
   height: fit-content;
 }
 

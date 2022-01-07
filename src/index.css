@@ -1,8 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-
-  width: 100vw;
   min-height: 100vh;
   height: 100vh;
 
@@ -22,6 +20,10 @@ body {
   justify-content: flex-start;
 }
 
+main {
+  margin: 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -29,8 +31,10 @@ code {
 
 :root {
   --primary: rgb(33, 33, 110);
+
   --bg-primary: white;
-  --bg-secondary: rgb(83, 83, 255);
+  --bg-secondary: rgb(119, 119, 245);
+  --bg-hover: rgb(166, 166, 240);
 
   --bg-selected: rgb(207, 95, 235);
 }
