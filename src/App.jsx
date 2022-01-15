@@ -1,5 +1,5 @@
 import React from "react";
-import { Ranker } from "./scenes";
+import { Ranker, ThreeByThree } from "./scenes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -43,7 +43,10 @@ export default class App extends React.Component {
                 path="/myanimelist-ranker"
                 element={<Ranker user={this.state.user} />}
               />
-              <Route path="/three-by-three" />
+              <Route
+                path="/three-by-three"
+                element={<ThreeByThree user={this.state.user} />}
+              />
             </Routes>
           ) : (
             <Home setUser={this.setUser} />

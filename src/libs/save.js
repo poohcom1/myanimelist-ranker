@@ -13,7 +13,7 @@ export const MODE = {
  * @param {string} username
  * @param {MODE} mode 
  */
-export function saveOrder(order, username, mode=MODE.ANIME) {
+export function saveOrder(order, username, mode = MODE.ANIME) {
     localStorage.setItem(`${username}_${mode}`, JSON.stringify(order))
 }
 
@@ -33,10 +33,13 @@ export function clearOrder(username, mode) {
 
 /**
  * 
- * @param {array} animeList 
- * @param {array} order 
+ * @param {object[]} animeList 
+ * @param {number[]} order
+ * @returns {object[]}
  */
 export function orderList(animeList, order) {
+    if (!order) return animeList
+
     const sortMap = {}
 
     for (let i = 0; i < animeList.length; i++) {

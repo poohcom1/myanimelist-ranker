@@ -5,7 +5,6 @@ import Controls from "./Controls";
 import { getRange, saveRange } from "../../libs/save";
 
 import { getCompletedAnimeList } from "../../libs/mal";
-import PromiseLoadingScreen from "../../hoc/PromiseLoader";
 
 class Ranker extends React.Component {
   constructor(props) {
@@ -37,20 +36,14 @@ class Ranker extends React.Component {
     return (
       <>
         <Controls setScore={this.setScore} />
-        <PromiseLoadingScreen
+        <RankingList
           promise={getCompletedAnimeList(this.props.user)}
           deps={[this.props.user]}
-          errMessage="User not found"
-        >
-          {(data) => (
-            <RankingList
-              list={data}
-              user={this.state.user}
-              maxScore={this.state.maxScore}
-              minScore={this.state.minScore}
-            />
-          )}
-        </PromiseLoadingScreen>
+          errMessage={"User not found"}
+          user={this.state.user}
+          maxScore={this.state.maxScore}
+          minScore={this.state.minScore}
+        />
       </>
     );
   }

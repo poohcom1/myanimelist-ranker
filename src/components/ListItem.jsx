@@ -1,6 +1,6 @@
 import React from "react";
-import "./ListItem.css"
-import PropTypes from 'prop-types'
+import "./ListItem.css";
+import PropTypes from "prop-types";
 
 /**
  * added_to_list: false
@@ -37,36 +37,34 @@ import PropTypes from 'prop-types'
  */
 
 class ListItem extends React.Component {
-    render() {
-        const { anime, rank, score, size } = this.props
+  render() {
+    const { anime, rank, score, size } = this.props;
 
-        return <div className="item">
-            <div className="rank">
-                {rank}
-            </div>
-            <img src={anime.image_url} alt={anime.title} height={`${size}px`} />
-            <div className="title" >
-                <a href={anime.url} target="_blank" rel="noreferrer">
-                    {anime.title}
-                </a>
-            </div>
-            
-            <div className="score">
-                {`Score: ${score.toFixed(2)} (${anime.score})`}
-            </div>
+    return (
+      <div className="item">
+        <div className="rank">{rank}</div>
+        <img src={anime.image_url} alt={anime.title} height={`${size}px`} />
+        <div className="title">
+          <a href={anime.url} target="_blank" rel="noreferrer">
+            {anime.title}
+          </a>
         </div>
-    }
+
+        <div className="score">{score}</div>
+      </div>
+    );
+  }
 }
 
 ListItem.propTypes = {
-    anime: PropTypes.object,
-    rank: PropTypes.number,
-    size: PropTypes.number,
-    score: PropTypes.number
-}
+  anime: PropTypes.object,
+  rank: PropTypes.number,
+  size: PropTypes.number,
+  score: PropTypes.any,
+};
 
 ListItem.defaultProps = {
-    size: 25
-}
+  size: 25,
+};
 
-export default ListItem
+export default ListItem;

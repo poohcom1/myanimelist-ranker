@@ -3,11 +3,12 @@ import "./RankingList.css";
 import { ReactSortable } from "react-sortablejs";
 import ListItem from "../../components/ListItem";
 import { saveOrder, getOrder, orderList } from "../../libs/save";
+import withPromiseLoading from "../../hoc/PromiseLoader";
 
-export default class RankingList extends React.Component {
+class RankingList extends React.Component {
   /**
    *
-   * @param {Array} props.list
+   * @param {Array} props.promiseData
    */
   constructor(props) {
     super(props);
@@ -22,7 +23,7 @@ export default class RankingList extends React.Component {
   initList() {
     this.storedOrder = getOrder(this.props.user);
 
-    let list = this.props.list;
+    let list = this.props.promiseData;
 
     if (this.storedOrder) {
       list = orderList(list, this.storedOrder);
@@ -65,12 +66,12 @@ export default class RankingList extends React.Component {
               key={item.mal_id}
               rank={index + 1}
               anime={item}
-              score={
+              score={`Score: ${(
                 this.props.maxScore -
                 index++ *
                   ((this.props.maxScore - this.props.minScore) /
                     this.state.list.length)
-              }
+              ).toFixed(2)} (${item.score})`}
               size={25}
             />
           ) : (
@@ -105,3 +106,5 @@ function removeBreaks(list) {
 function isItem(item) {
   return typeof item == "object" && "mal_id" in item;
 }
+
+export default withPromiseLoading(RankingList);

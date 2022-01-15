@@ -16,67 +16,74 @@ const MessageScreen = styled.div`
   }
 `;
 
-class PromiseLoadingScreen extends React.Component {
-  constructor(props) {
-    super(props);
+/**
+ * Injects Component with promiseData
+ * @param {React.Component} Component
+ * @returns {React.Component}
+ */
+export default function withPromiseLoading(Component) {
+  class Wrapper extends React.Component {
+    constructor(props) {
+      super(props);
 
-    this.state = {
-      loaded: false,
-      error: false,
-    };
+      this.state = {
+        loaded: false,
+        error: false,
+      };
 
-    this.data = null;
-  }
+      this.data = null;
+    }
 
-  componentDidMount() {
-    this.callPromise();
-  }
-
-  callPromise() {
-    this.props.promise
-      .then((newData) => {
-        this.data = newData;
-
-        this.setState({ loaded: true, error: false });
-      })
-      .catch((e) => {
-        console.log(e);
-        this.setState({ loaded: false, error: true });
-      });
-  }
-
-  componentDidUpdate(prevProps) {
-    if (JSON.stringify(this.props.deps) !== JSON.stringify(prevProps.deps)) {
-      this.setState({ loaded: false, error: false });
+    componentDidMount() {
       this.callPromise();
+    }
+
+    callPromise() {
+      this.props.promise
+        .then((newData) => {
+          this.data = newData;
+
+          this.setState({ loaded: true, error: false });
+        })
+        .catch((e) => {
+          console.log(e);
+          this.setState({ loaded: false, error: true });
+        });
+    }
+
+    componentDidUpdate(prevProps) {
+      if (JSON.stringify(this.props.deps) !== JSON.stringify(prevProps.deps)) {
+        this.setState({ loaded: false, error: false });
+        this.callPromise();
+      }
+    }
+
+    render() {
+      return (
+        <>
+          {this.state.loaded ? (
+            <Component promiseData={this.data} {...this.props} />
+          ) : (
+            <MessageScreen>
+              <div>
+                {!this.state.error ? (
+                  <img src={LoadingPic} alt="Loading..."></img>
+                ) : (
+                  <p>{this.props.errMessage}</p>
+                )}
+              </div>
+            </MessageScreen>
+          )}
+        </>
+      );
     }
   }
 
-  render() {
-    return (
-      <>
-        {this.state.loaded ? (
-          this.props.children(this.data)
-        ) : (
-          <MessageScreen>
-            <div>
-              {!this.state.error ? (
-                <img src={LoadingPic} alt="Loading..."></img>
-              ) : (
-                <p>{this.props.errMessage}</p>
-              )}
-            </div>
-          </MessageScreen>
-        )}
-      </>
-    );
-  }
+  Wrapper.propTypes = {
+    promise: PropTypes.instanceOf(Promise),
+    deps: PropTypes.array,
+    errMessage: PropTypes.string,
+  };
+
+  return Wrapper;
 }
-
-PromiseLoadingScreen.propTypes = {
-  promise: PropTypes.instanceOf(Promise),
-  deps: PropTypes.array,
-  errMessage: PropTypes.string,
-};
-
-export default PromiseLoadingScreen;
